@@ -16,7 +16,7 @@ jobs:
         dotnet-version: 8.x
     # The dotnet CLI does not accept glob patterns. Consider using a solution file to act on multiple projects at once.
     - name: Restore NuGet Packages
-      run: dotnet restore **/*.csproj
+      run: dotnet restore aspdotnetproj.csproj
     # The dotnet CLI does not accept glob patterns. Consider using a solution file to act on multiple projects at once.
     - name: Build Solution
       run: dotnet build **/*.csproj --configuration Release
