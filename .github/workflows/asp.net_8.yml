@@ -19,10 +19,10 @@ jobs:
       run: dotnet restore aspdotnetproj.csproj
     # The dotnet CLI does not accept glob patterns. Consider using a solution file to act on multiple projects at once.
     - name: Build Solution
-      run: dotnet build **/*.csproj --configuration Release
+      run: dotnet build aspdotnetproj.csproj --configuration Release
     # The dotnet CLI does not accept glob patterns. Consider using a solution file to act on multiple projects at once.
     - name: Run Tests
-      run: dotnet test **/*.csproj --logger trx --results-directory "${{ runner.temp }}" --configuration Release
+      run: dotnet test aspdotnetproj.csproj --logger trx --results-directory "${{ runner.temp }}" --configuration Release
     - name: Run Tests
       uses: NasAmin/trx-parser@v0.5.0
       if: always()
@@ -31,7 +31,7 @@ jobs:
         REPO_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
     # The dotnet CLI does not accept glob patterns. Consider using a solution file to act on multiple projects at once.
     - name: Publish
-      run: dotnet publish **/*.csproj --configuration Release --output ${{ runner.temp }}/publish
+      run: dotnet publish aspdotnetproj.csproj --configuration Release --output ${{ runner.temp }}/publish
     - name: Publish Artifact
       uses: actions/upload-artifact@v4.1.0
       with:
