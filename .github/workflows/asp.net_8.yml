@@ -30,7 +30,7 @@ jobs:
         REPO_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
     # The dotnet CLI does not accept glob patterns. Consider using a solution file to act on multiple projects at once.
     - name: Publish
-      run: dotnet publish **/*.csproj --configuration Release --output ${{ runner.temp }}/publish
+      run: dotnet publish aspdotnetproj.csproj --configuration Release --output ${{ runner.temp }}/publish
     - name: Publish Artifact
       uses: actions/upload-artifact@v4.1.0
       with:
