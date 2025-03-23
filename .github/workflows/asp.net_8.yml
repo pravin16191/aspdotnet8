@@ -5,9 +5,7 @@ on:
     - main
 jobs:
   Build:
-    runs-on:
-      - self-hosted
-      - Azure Pipelines
+    runs-on: windows-latest
     steps:
     - name: checkout
       uses: actions/checkout@v4.1.0
