@@ -22,7 +22,7 @@ jobs:
       run: dotnet build aspdotnetproj.csproj --configuration Release
     # The dotnet CLI does not accept glob patterns. Consider using a solution file to act on multiple projects at once.
     - name: Run Tests
-      run: dotnet testaspdotnetproj.csproj --logger trx --results-directory "${{ runner.temp }}" --configuration Release
+      run: dotnet test aspdotnetproj.csproj --logger trx --results-directory "${{ runner.temp }}" --configuration Release
     - name: Run Tests
       uses: NasAmin/trx-parser@v0.5.0
       if: always()
